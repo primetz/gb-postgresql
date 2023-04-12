@@ -1,0 +1,10 @@
+CREATE ROLE gb_user WITH LOGIN CREATEDB PASSWORD 'secret';
+
+CREATE DATABASE test;
+
+\c test
+
+GRANT CREATE ON SCHEMA public TO gb_user;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO gb_user;
+
+\q
