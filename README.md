@@ -19,3 +19,16 @@ User: gb_user
 Password: secret
 Database: test
 ```
+
+## :pencil: Практические задания
+
+> ### :one: Возможности объектно-реляционной СУБД PostgreSQL, установка рабочего окружения
+>> :pencil2: 1. Установить PostgreSQL на виртуальную машину с Linux, настроить подключение консольным клиентом psql.
+>>
+>> :checkered_flag: Скриншот подключения к виртуальной машине с установленным PostgreSQL по ssh:
+>> ![Console psql](./lesson_1/psql.png)
+> 
+>> :pencil2: 2. Установить программу pgAdmin на основную систему и настроить подключение к PostgreSQL на виртуальной машине через туннель SSH.
+>>
+>> :checkered_flag: Скриншот подключения к виртуальной машине с установленным PostgreSQL из PgAdmin:
+>> ![Console psql](./lesson_1/pgAdmin.png)
