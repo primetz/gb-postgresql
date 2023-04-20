@@ -13,7 +13,8 @@ services:
         ports:
             - "5432:5432"
         volumes:
-            - ./postgres/master/initdb.d/init-user-db.sql:/docker-entrypoint-initdb.d/init-user-db.sql
+            - ./../lesson_2/vk.dump.sql:/vk.dump.sql
+            - ./postgres/master/initdb.d:/docker-entrypoint-initdb.d
             - postgres-master:/var/lib/postgresql/data
         env_file:
             - ./postgres/master/.env.master
