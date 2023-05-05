@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP NOT NULL DEFAULT current_timestamp
 );
 
-DROP TABLE IF EXISTS messages;
+DROP TABLE IF EXISTS messages CASCADE;
 CREATE TABLE IF NOT EXISTS messages (
     id SERIAL PRIMARY KEY,
     from_user_id INT NOT NULL,
@@ -20,10 +20,10 @@ CREATE TABLE IF NOT EXISTS messages (
     created_at TIMESTAMP NOT NULL DEFAULT current_timestamp
 );
 
-DROP TYPE IF EXISTS friendship_statuses_enum;
+DROP TYPE IF EXISTS friendship_statuses_enum CASCADE;
 CREATE TYPE friendship_statuses_enum AS ENUM ('requested', 'confirmed', 'rejected');
 
-DROP TABLE IF EXISTS friendship;
+DROP TABLE IF EXISTS friendship CASCADE;
 CREATE TABLE IF NOT EXISTS friendship (
     id SERIAL PRIMARY KEY,
     requested_by_user_id INT NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS friendship (
     confirmed_at TIMESTAMP
 );
 
-DROP TABLE IF EXISTS communities;
+DROP TABLE IF EXISTS communities CASCADE;
 CREATE TABLE IF NOT EXISTS communities (
     id SERIAL PRIMARY KEY,
     name VARCHAR(120) UNIQUE,
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS communities (
     created_at TIMESTAMP NOT NULL DEFAULT current_timestamp
 );
 
-DROP TABLE IF EXISTS communities_users;
+DROP TABLE IF EXISTS communities_users CASCADE;
 CREATE TABLE IF NOT EXISTS communities_users (
     community_id INT NOT NULL,
     user_id INT NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS communities_users (
     PRIMARY KEY (community_id, user_id)
 );
 
-DROP TABLE IF EXISTS photo;
+DROP TABLE IF EXISTS photo CASCADE;
 CREATE TABLE IF NOT EXISTS photo (
     id SERIAL PRIMARY KEY,
     url VARCHAR(250) NOT NULL UNIQUE,
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS photo (
     size INT NOT NULL
 );
 
-DROP TABLE IF EXISTS video;
+DROP TABLE IF EXISTS video CASCADE;
 CREATE TABLE IF NOT EXISTS video (
     id SERIAL PRIMARY KEY,
     url VARCHAR(250) NOT NULL UNIQUE,
